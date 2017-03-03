@@ -20,6 +20,7 @@ f2py3 -c t660.f90 toms660.f90 t660.pyf (Python3)
 f2py -c t660.f90 toms660.f90 t660py2.pyf (Python2)
 
 Python3 code testing the lib.
+The result is shown in the figure below. Left interpolated version, right input data.
 ```python
 import matplotlib
 matplotlib.use('Agg')
