@@ -8,7 +8,7 @@ import time
 x = np.random.uniform(0,10,1048576)
 y = np.random.uniform(0,10,1048576)
 # data = np.random.uniform(1,200,1048576)
-def func(x1, y1):
+def func(x1, y1):git add README.md
     return np.cos(0.5*np.pi*x1) + np.sin(0.5*np.pi*y1)
 data = func(x,y)
 n = len(data)
