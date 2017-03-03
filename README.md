@@ -19,6 +19,9 @@ f2py3 -c t660.f90 toms660.f90 t660.pyf (Python3)
 
 f2py -c t660.f90 toms660.f90 t660py2.pyf (Python2)
 
+The files you want are t660.cpython-34m.so and t660py2.so. Just copy them
+into your working dir or to your python-lib path.
+
 Python3 code testing the lib.
 The result is shown in the figure below. Left interpolated version, right input data.
 ```python
