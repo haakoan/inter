@@ -1,0 +1,50 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module t660 ! in 
+    interface  ! in :t660
+        subroutine int2d(n,x,y,f,nq,nw,nr,lcell,lnext,xmin,ymin,dx,dy,rmax,rsq,a,ier) ! in :t660:t660.f90
+            use toms660
+            integer(kind=4) :: n
+            real(kind=8) dimension(n),intent(in),depend(n) :: x
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            real(kind=8) dimension(n),intent(in),depend(n) :: f
+            integer(kind=4) intent(in) :: nq
+            integer(kind=4) intent(in) :: nw
+            integer(kind=4) intent(in) :: nr
+            integer(kind=4) dimension(nr,nr),intent(out),depend(nr,nr) :: lcell
+            integer(kind=4) dimension(n),intent(out),depend(n) :: lnext
+            real(kind=8) intent(out) :: xmin
+            real(kind=8) intent(out) :: ymin
+            real(kind=8) intent(out) :: dx
+            real(kind=8) intent(out) :: dy
+            real(kind=8) intent(out) :: rmax
+            real(kind=8) dimension(n),intent(out),depend(n) :: rsq
+            real(kind=8) dimension(5,n),intent(out),depend(n) :: a
+            integer(kind=4) intent(out) :: ier
+        end subroutine int2d
+        subroutine eval2d(px,py,n,x,y,f,nr,lcell,lnext,xmin,ymin,dx,dy,rmax,rsq,a,val) ! in :t660:t660.f90
+            use toms660
+            real(kind=8) intent(in) :: px
+            real(kind=8) intent(in) :: py
+            integer(kind=4) :: n
+            real(kind=8) dimension(n),intent(in),depend(n) :: x
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            real(kind=8) dimension(n),intent(in),depend(n) :: f
+            integer(kind=4) nr
+            integer(kind=4) dimension(nr,nr),intent(in),depend(nr,nr) :: lcell
+            integer(kind=4) dimension(n),intent(in),depend(n) :: lnext
+            real(kind=8) intent(in) :: xmin
+            real(kind=8) intent(in) :: ymin
+            real(kind=8) intent(in) :: dx
+            real(kind=8) intent(in) :: dy
+            real(kind=8) intent(in) :: rmax
+            real(kind=8) dimension(n),intent(in),depend(n) :: rsq
+            real(kind=8) dimension(5,n),intent(in),depend(n) :: a
+            real(kind=8) intent(out) :: val
+        end subroutine eval2d
+    end interface 
+end python module t660
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

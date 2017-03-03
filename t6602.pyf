@@ -1,0 +1,125 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module t6602 ! in 
+    interface  ! in :t6602
+        module toms660 ! in :t6602:toms660.f90
+            subroutine getnp2(px,py,x,y,nr,lcell,lnext,xmin,ymin,dx,dy,np,dsq) ! in :t6602:toms660.f90:toms660
+                real(kind=8) :: px
+                real(kind=8) :: py
+                real(kind=8) dimension(*) :: x
+                real(kind=8) dimension(*) :: y
+                integer(kind=4), optional,check(shape(lcell,0)==nr),depend(lcell) :: nr=shape(lcell,0)
+                integer(kind=4) dimension(nr,nr) :: lcell
+                integer(kind=4) dimension(*) :: lnext
+                real(kind=8) :: xmin
+                real(kind=8) :: ymin
+                real(kind=8) :: dx
+                real(kind=8) :: dy
+                integer(kind=4) :: np
+                real(kind=8) :: dsq
+            end subroutine getnp2
+            subroutine givens(a,b,c,s) ! in :t6602:toms660.f90:toms660
+                real(kind=8) :: a
+                real(kind=8) :: b
+                real(kind=8) :: c
+                real(kind=8) :: s
+            end subroutine givens
+            subroutine qs2grd(px,py,n,x,y,f,nr,lcell,lnext,xmin,ymin,dx,dy,rmax,rsq,a,q,qx,qy,ier) ! in :t6602:toms660.f90:toms660
+                real(kind=8) :: px
+                real(kind=8) :: py
+                integer(kind=4), optional,check(len(x)>=n),depend(x) :: n=len(x)
+                real(kind=8) dimension(n) :: x
+                real(kind=8) dimension(n),depend(n) :: y
+                real(kind=8) dimension(n),depend(n) :: f
+                integer(kind=4), optional,check(shape(lcell,0)==nr),depend(lcell) :: nr=shape(lcell,0)
+                integer(kind=4) dimension(nr,nr) :: lcell
+                integer(kind=4) dimension(n),depend(n) :: lnext
+                real(kind=8) :: xmin
+                real(kind=8) :: ymin
+                real(kind=8) :: dx
+                real(kind=8) :: dy
+                real(kind=8) :: rmax
+                real(kind=8) dimension(n),depend(n) :: rsq
+                real(kind=8) dimension(5,n),depend(n) :: a
+                real(kind=8) :: q
+                real(kind=8) :: qx
+                real(kind=8) :: qy
+                integer(kind=4) :: ier
+            end subroutine qs2grd
+            subroutine qshep2(n,x,y,f,nq,nw,nr,lcell,lnext,xmin,ymin,dx,dy,rmax,rsq,a,ier) ! in :t6602:toms660.f90:toms660
+                integer(kind=4), optional,check(len(x)>=n),depend(x) :: n=len(x)
+                real(kind=8) dimension(n) :: x
+                real(kind=8) dimension(n),depend(n) :: y
+                real(kind=8) dimension(n),depend(n) :: f
+                integer(kind=4) :: nq
+                integer(kind=4) :: nw
+                integer(kind=4), optional,check(shape(lcell,0)==nr),depend(lcell) :: nr=shape(lcell,0)
+                integer(kind=4) dimension(nr,nr) :: lcell
+                integer(kind=4) dimension(n),depend(n) :: lnext
+                real(kind=8) :: xmin
+                real(kind=8) :: ymin
+                real(kind=8) :: dx
+                real(kind=8) :: dy
+                real(kind=8) :: rmax
+                real(kind=8) dimension(n),depend(n) :: rsq
+                real(kind=8) dimension(5,n),depend(n) :: a
+                integer(kind=4) :: ier
+            end subroutine qshep2
+            function qs2val(px,py,n,x,y,f,nr,lcell,lnext,xmin,ymin,dx,dy,rmax,rsq,a) ! in :t6602:toms660.f90:toms660
+                real(kind=8) :: px
+                real(kind=8) :: py
+                integer(kind=4), optional,check(len(x)>=n),depend(x) :: n=len(x)
+                real(kind=8) dimension(n) :: x
+                real(kind=8) dimension(n),depend(n) :: y
+                real(kind=8) dimension(n),depend(n) :: f
+                integer(kind=4), optional,check(shape(lcell,0)==nr),depend(lcell) :: nr=shape(lcell,0)
+                integer(kind=4) dimension(nr,nr) :: lcell
+                integer(kind=4) dimension(n),depend(n) :: lnext
+                real(kind=8) :: xmin
+                real(kind=8) :: ymin
+                real(kind=8) :: dx
+                real(kind=8) :: dy
+                real(kind=8) :: rmax
+                real(kind=8) dimension(n),depend(n) :: rsq
+                real(kind=8) dimension(5,n),depend(n) :: a
+                real(kind=8) :: qs2val
+            end function qs2val
+            subroutine rotate(n,c,s,x,y) ! in :t6602:toms660.f90:toms660
+                integer(kind=4), optional,check(len(x)>=n),depend(x) :: n=len(x)
+                real(kind=8) :: c
+                real(kind=8) :: s
+                real(kind=8) dimension(n) :: x
+                real(kind=8) dimension(n),depend(n) :: y
+            end subroutine rotate
+            subroutine setup2(xk,yk,fk,xi,yi,fi,s1,s2,r,row) ! in :t6602:toms660.f90:toms660
+                real(kind=8) :: xk
+                real(kind=8) :: yk
+                real(kind=8) :: fk
+                real(kind=8) :: xi
+                real(kind=8) :: yi
+                real(kind=8) :: fi
+                real(kind=8) :: s1
+                real(kind=8) :: s2
+                real(kind=8) :: r
+                real(kind=8) dimension(6) :: row
+            end subroutine setup2
+            subroutine store2(n,x,y,nr,lcell,lnext,xmin,ymin,dx,dy,ier) ! in :t6602:toms660.f90:toms660
+                integer(kind=4), optional,check(len(x)>=n),depend(x) :: n=len(x)
+                real(kind=8) dimension(n) :: x
+                real(kind=8) dimension(n),depend(n) :: y
+                integer(kind=4), optional,check(shape(lcell,0)==nr),depend(lcell) :: nr=shape(lcell,0)
+                integer(kind=4) dimension(nr,nr) :: lcell
+                integer(kind=4) dimension(n),depend(n) :: lnext
+                real(kind=8) :: xmin
+                real(kind=8) :: ymin
+                real(kind=8) :: dx
+                real(kind=8) :: dy
+                integer(kind=4) :: ier
+            end subroutine store2
+        end module toms660
+    end interface 
+end python module t6602
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
